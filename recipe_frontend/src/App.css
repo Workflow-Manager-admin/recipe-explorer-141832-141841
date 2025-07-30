@@ -1,24 +1,44 @@
-/* CSS Variables for Theme Management */
+/* CSS Variables for Monochrome Theme */
 :root {
   /* Light theme colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --border-color: #dddddd;
+  --accent-color: #000000;
+  --accent-text-color: #ffffff;
+  --secondary-accent-color: #eeeeee;
+  --secondary-accent-text-color: #333333;
+  --favorite-color: #000000;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 4px 20px 0 rgba(0, 0, 0, 0.12);
+  --modal-bg-overlay: rgba(0, 0, 0, 0.7);
+  --modal-bg: #ffffff;
+  --input-bg: #f5f5f5;
+  --input-border: #bbbbbb;
 }
 
 [data-theme="dark"] {
   /* Dark theme colors */
   --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+  --bg-secondary: #2c2c2c;
+  --text-primary: #eeeeee;
+  --text-secondary: #bbbbbb;
+  --border-color: #444444;
+  --accent-color: #ffffff;
+  --accent-text-color: #000000;
+  --secondary-accent-color: #333333;
+  --secondary-accent-text-color: #ffffff;
+  --favorite-color: #ffffff;
+  --card-bg: #2c2c2c;
+  --card-shadow: 0 2px 12px 0 rgba(255, 255, 255, 0.05);
+  --card-shadow-hover: 0 4px 20px 0 rgba(255, 255, 255, 0.08);
+  --modal-bg-overlay: rgba(0, 0, 0, 0.8);
+  --modal-bg: #2c2c2c;
+  --input-bg: #333333;
+  --input-border: #555555;
 }
 
 .App {
@@ -62,9 +82,9 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
+  background-color: var(--secondary-accent-color);
+  color: var(--secondary-accent-text-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 14px;
@@ -104,16 +124,6 @@
 }
 
 /* === Recipe Explorer Styles === */
-:root {
-  --primary: #4CAF50;
-  --secondary: #FFC107;
-  --accent: #FF5722;
-  --sidebar-bg: #f8f9fa;
-  --favorite: #FF5722;
-  --card-bg: #fff;
-  --modal-bg: rgba(34, 34, 34, 0.75);
-}
-
 body, .App {
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -126,11 +136,12 @@ body, .App {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--primary);
-  color: #fff;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 1rem 1.5rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-color);
 }
 .navbar-title {
   font-size: 1.25rem;
@@ -150,9 +161,9 @@ body, .App {
 }
 .sidebar {
   flex: 0 0 220px;
-  background: var(--sidebar-bg);
+  background: var(--bg-secondary);
   padding: 1.25rem 1rem;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 66px); /* Adjusted for border */
   border-right: 1px solid var(--border-color);
 }
 .sidebar-section {
@@ -167,14 +178,14 @@ body, .App {
   font-size: 1rem;
 }
 .cat-pill {
-  background: var(--secondary);
-  color: #333;
+  background: var(--secondary-accent-color);
+  color: var(--secondary-accent-text-color);
   font-size: 0.8rem;
   padding: 0.2em 0.8em;
   border-radius: 16px;
 }
 .favorite {
-  color: var(--favorite);
+  color: var(--favorite-color);
 }
 
 /* Content/Grid */
@@ -195,7 +206,8 @@ body, .App {
   border-radius: 5px;
   border: 1px solid var(--border-color);
   margin-right: 0.5rem;
-  background: #fff;
+  background: var(--input-bg);
+  color: var(--text-primary);
 }
 
 .recipe-grid {
@@ -206,22 +218,23 @@ body, .App {
 .recipe-card {
   background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 2px 12px 0 #eee5;
+  box-shadow: var(--card-shadow);
   transition: box-shadow .2s, transform .1s;
   cursor: pointer;
   padding: 1rem 1rem 0.6rem 1rem;
   display: flex;
   flex-direction: column;
   position: relative;
+  border: 1px solid var(--border-color);
 }
 .recipe-card:hover {
-  box-shadow: 0 4px 20px 0 #d3d3d3cc;
+  box-shadow: var(--card-shadow-hover);
   transform: translateY(-2px) scale(1.01);
 }
 .card-img-wrap {
   width: 100%;
   height: 140px;
-  background: #eee;
+  background: var(--bg-secondary);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -248,7 +261,7 @@ body, .App {
 }
 .card-desc {
   font-size: 0.98rem;
-  color: #444;
+  color: var(--text-secondary);
   margin: 0.3em 0 0.8em 0;
   min-height: 36px;
 }
@@ -263,8 +276,8 @@ body, .App {
   margin-right: 2px;
 }
 .btn.delete {
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent-color);
+  color: var(--accent-text-color);
 }
 
 /* Favorite Button */
@@ -272,22 +285,23 @@ body, .App {
   background: none;
   border: none;
   font-size: 1.12em;
-  color: var(--favorite);
+  color: var(--favorite-color);
   cursor: pointer;
   margin-left: 8px;
   transition: color 0.15s;
   opacity: 0.72;
 }
 .fav-btn.active {
-  color: var(--accent);
+  color: var(--favorite-color);
   opacity: 1;
+  text-shadow: 0 0 5px var(--favorite-color);
 }
 
 /* Modal Styles */
 .modal-overlay {
   position: fixed;
   left: 0; top: 0; width: 100vw; height: 100vh;
-  background: var(--modal-bg);
+  background: var(--modal-bg-overlay);
   z-index: 800;
   display: flex;
   align-items: center;
@@ -296,11 +310,12 @@ body, .App {
 .modal {
   width: 100%;
   max-width: 480px;
-  background: #fff;
+  background: var(--modal-bg);
   padding: 2.2rem 2rem 1.2rem 2rem;
   border-radius: 16px;
-  box-shadow: 0 6px 32px 6px #2228;
+  box-shadow: 0 6px 32px 6px #0008;
   position: relative;
+  border: 1px solid var(--border-color);
 }
 .modal-wide {
   max-width: 720px;
@@ -312,7 +327,7 @@ body, .App {
   background: none;
   border: none;
   cursor: pointer;
-  color: #888;
+  color: var(--text-secondary);
 }
 .modal-header {
   display: flex;
@@ -325,6 +340,7 @@ body, .App {
   object-fit: cover;
   border-radius: 8px;
   margin-right: 1em;
+  background: var(--bg-secondary);
 }
 .modal-body {
   padding: 0.5em 0;
@@ -332,6 +348,7 @@ body, .App {
 .detail-description {
   font-size: 1.07em;
   margin-bottom: 1em;
+  color: var(--text-secondary);
 }
 
 /* Auth Modal */
@@ -345,20 +362,23 @@ body, .App {
   font-size: 1.02rem;
   padding: 0.55em 0.7em;
   border-radius: 7px;
-  border: 1px solid #bbb;
-  background: #f5f5f5;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
 }
 .auth-form input:focus {
-  border: 1.5px solid var(--primary);
+  border: 1.5px solid var(--accent-color);
+  outline: none;
 }
 .auth-form .btn.wide {
   width: 100%;
   margin-top: 0.8em;
 }
 .auth-error {
-  color: var(--accent);
+  color: var(--text-primary); /* Errors stand out on both themes */
   margin-top: 0.75em;
   font-size: 0.95em;
+  font-weight: bold;
 }
 
 /* Recipe Form Modal */
@@ -367,8 +387,9 @@ body, .App {
   padding: 0.54em 0.7em;
   margin-bottom: 0.7em;
   border-radius: 7px;
-  border: 1px solid #bbb;
-  background: #f7f7f7;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
   font-size: 1rem;
 }
 .recipe-list-item {
@@ -382,8 +403,8 @@ body, .App {
   padding: 2px 8px;
   margin-left: 4px;
   border: none;
-  background: var(--secondary);
-  color: #555;
+  background: var(--secondary-accent-color);
+  color: var(--secondary-accent-text-color);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -392,7 +413,7 @@ body, .App {
 }
 
 .grid-placeholder {
-  color: #888;
+  color: var(--text-secondary);
   font-size: 1.14em;
   margin-top: 3em;
   text-align: center;
@@ -407,22 +428,25 @@ body, .App {
   font-size: 1rem;
   border-radius: 9px;
   font-weight: 500;
-  color: #fff;
-  background: var(--primary);
+  color: var(--accent-text-color);
+  background: var(--accent-color);
   margin: 0 4px;
   cursor: pointer;
   transition: background .18s, box-shadow .2s;
-  box-shadow: 0 1px 6px #0001;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
 .btn.accent {
-  background: var(--accent);
+  background: var(--accent-color);
+  color: var(--accent-text-color);
 }
 .btn.delete {
-  background: var(--accent);
+  background: var(--accent-color);
+  color: var(--accent-text-color);
 }
 .btn.favorite {
-  background: var(--secondary);
-  color: #222;
+  background: var(--secondary-accent-color);
+  color: var(--secondary-accent-text-color);
+  border: 1px solid var(--border-color);
 }
 .btn.wide {
   width: 98%;
